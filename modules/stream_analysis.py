@@ -318,3 +318,14 @@ class StatisticalDiagnostics:
             return np.inf
 
         return ms_between / ms_within
+
+    @staticmethod
+    def ensemble_curve(df, halo, key):
+        
+        subset = df[df.halo == halo]
+        curves = np.vstack(subset[key].values)
+        mean = curves.mean(axis=0)
+        std = curves.std(axis=0)
+        time = subset["time_Gyr"].values[0]
+        
+        return time, mean, std
