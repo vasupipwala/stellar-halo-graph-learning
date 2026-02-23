@@ -1,0 +1,22 @@
+metric,comparison,cohens_d,label
+theta_plane_mean,spherical vs oblate,55.03268338142882,very large
+theta_plane_mean,spherical vs prolate,118.00237336066846,very large
+theta_plane_mean,oblate vs prolate,60.49688207833757,very large
+theta_plane_max,spherical vs oblate,2.0897939442518103,very large
+theta_plane_max,spherical vs prolate,9.184971186241,very large
+theta_plane_max,oblate vs prolate,7.334487570303701,very large
+precession_max,spherical vs oblate,inf,very large
+precession_max,spherical vs prolate,inf,very large
+precession_max,oblate vs prolate,inf,very large
+precession_slope,spherical vs oblate,inf,very large
+precession_slope,spherical vs prolate,inf,very large
+precession_slope,oblate vs prolate,inf,very large
+thickness_slope,spherical vs oblate,0.47824891796951546,small
+thickness_slope,spherical vs prolate,0.47586225840000723,small
+thickness_slope,oblate vs prolate,0.9287702738687523,large
+elongation_ratio,spherical vs oblate,0.8465190416280839,large
+elongation_ratio,spherical vs prolate,0.6664123789101749,moderate
+elongation_ratio,oblate vs prolate,0.2504344566889737,small
+oscillation_amp,spherical vs oblate,32.819734191728834,very large
+oscillation_amp,spherical vs prolate,202.8022763919984,very large
+oscillation_amp,oblate vs prolate,61.39650525911635,very large

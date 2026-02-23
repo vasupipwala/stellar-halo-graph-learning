@@ -329,3 +329,42 @@ class StatisticalDiagnostics:
         time = subset["time_Gyr"].values[0]
         
         return time, mean, std
+        
+    @staticmethod
+    def compute_temporal_variance_ratio(df, metric_name):
+
+        halos = df.halo.unique() #[0:1]
+        t = df.iloc[0]["time_Gyr"]   # common time grid
+        nt = len(t)
+    
+        # Collect curves
+        curves = {halo: [] for halo in halos}
+    
+        for _, row in df.iterrows():
+            curves[row["halo"]].append(row[metric_name])
+    
+        # Convert to arrays
+        for halo in halos:
+            curves[halo] = np.vstack(curves[halo])  # shape: (n_mass, nt)
+    
+        R_t = np.zeros(nt)
+    
+        for i in range(nt):
+    
+            # Means per halo at time i
+            halo_means = []
+            halo_vars = []
+    
+            for halo in halos:
+                vals = curves[halo][:, i]
+                halo_means.append(np.mean(vals))
+                halo_vars.append(np.var(vals))
+    
+            grand_mean = np.mean(halo_means)
+    
+            between = np.sum((np.array(halo_means) - grand_mean)**2)
+            within = np.mean(halo_vars)
+    
+            R_t[i] = between / (within + 1e-8)
+    
+        return R_t
